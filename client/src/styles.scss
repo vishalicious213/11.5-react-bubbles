@@ -11,9 +11,13 @@ body,
 }
 
 .App {
+  // border: 1px solid red;
   font-family: "Montserrat", sans-serif;
   text-align: center;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   svg {
     height: 100%;
@@ -96,4 +100,16 @@ form {
     padding: 3px 8px;
     margin-top: 16px;
   }
+}
+
+// BEGIN STYLES
+
+.login-page {
+  border: 1px solid red;
+  width: 50%;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
 }
