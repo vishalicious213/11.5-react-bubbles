@@ -35,20 +35,39 @@ body,
 }
 
 .colors-wrap {
-  height: 100%;
-  width: 300px;
+  // height: 100%;
+  width: 90%;
+  margin-bottom: 2rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
   ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     list-style: none;
     text-align: start;
 
     li {
       cursor: pointer;
-      padding: 6px 0;
+      padding: .35rem 0;
       display: flex;
       justify-content: space-between;
-      width: 100%;
+      width: 40%;
+    }
+
+    li:hover {
+      background: whitesmoke;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    ul {
+      flex-direction: column;
+    }
+
+    li {
+      min-width: 70%;
+      margin-left: 2rem;
     }
   }
 }
@@ -58,10 +77,10 @@ body,
 }
 
 .color-box {
-  height: 16px;
-  width: 16px;
+  height: 1rem;
+  width: 1rem;
   border: 1px lightgray solid;
-  margin-right: 36px;
+  // margin-right: 36px;
 }
 
 form {
