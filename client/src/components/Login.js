@@ -13,6 +13,8 @@ const Login = (props) => {
       setPassword(event.target.value);
   }
 
+  // make a post request to retrieve a token from the api
+  // when you have handled the token, navigate to the BubblePage route
   const submitLogin = event => {
     event.preventDefault();
     // console.log(username, password);
@@ -29,8 +31,7 @@ const Login = (props) => {
         setPassword('');
       })
   }
-  // make a post request to retrieve a token from the api
-  // when you have handled the token, navigate to the BubblePage route
+  
   return (
     <section className='login-page'>
       <h1>Welcome to the Bubble App!</h1>
