@@ -42,12 +42,7 @@ const ColorList = ({ colors, updateColors }) => {
       console.log('put: ', results);
       console.log('put colors: ', colors);
       refreshColors();
-      // updateColors();
     })
-    // .get('http://localhost:5000/api/colors')
-    // .then(newColorListResults => {
-    //   console.log('new colors: ', newColorListResults);
-    // })
     .catch(error => {
       console.log('put Error: ', error);
     })
@@ -55,6 +50,15 @@ const ColorList = ({ colors, updateColors }) => {
 
   const deleteColor = color => {
     // make a delete request to delete this color
+    axiosWithAuth()
+    .delete(`http://localhost:5000/api/colors/${color.id}`)
+    .then(results => {
+      console.log('delete: ', results);
+      refreshColors();
+    })
+    .catch(error => {
+      console.log('delete error: ', error);
+    })
   };
 
   return (
