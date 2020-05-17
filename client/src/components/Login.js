@@ -31,27 +31,33 @@ const Login = (props) => {
         setPassword('');
       })
   }
-  
+
   return (
-    <section className='login-page'>
-      <h1>Welcome to the Bubble App!</h1>
-      <form className='login-form' onSubmit={submitLogin}>
-        <input 
-          type='text' 
-          name='username' 
-          placeholder='Username'
-          value={username}
-          onChange={updateUsername}
-        />
-        <input
-          type='password'
-          name='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button>Login</button>
-      </form>
+    <section className='cover'>
+    <h1>Welcome to the Bubble App!</h1>
+    <section className='login-bubble'>
+      <div className='login-page'>
+        <form className='login-form' onSubmit={submitLogin}>
+          <input 
+            type='text' 
+            name='username' 
+            placeholder='Username'
+            value={username}
+            onChange={updateUsername}
+            className='login-field'
+          />
+          <input
+            type='password'
+            name='password'
+            placeholder='Password'
+            value={password}
+            onChange={updatePassword}
+            className='login-field'
+          />
+          <button className='login-field'>Login</button>
+        </form>
+      </div>
+    </section>
     </section>
   );
 };

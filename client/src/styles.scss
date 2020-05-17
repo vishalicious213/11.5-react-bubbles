@@ -124,9 +124,30 @@ form {
 
 // BEGIN STYLES
 
+.cover {
+  width: 100%;
+  height: 100%;
+}
+
+.login-bubble {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./img/bubbles-clipart-colorful.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: contain;
+}
+
 .login-page {
   border: 1px solid red;
-  width: 50%;
+  min-height: 20rem;
+  min-width: 20rem;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, rgba(0, 191, 255, 0.7), rgba(255, 0, 0, 0.8));
 }
 
 .login-form {
@@ -134,12 +155,24 @@ form {
   align-items: center;
 }
 
+.login-field {
+  margin: .25rem;
+  border-radius: .75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .add-color {
   // border: 1px solid red;
   box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.16), 0 -3px 6px rgba(0, 0, 0, 0.23);
-  width: 90%;
+  width: 60%;
+  padding-top: .75rem;;
   position: absolute;
   bottom: 0;
+
+  @media screen and (max-width: 500px) {
+    min-width: 90%;
+  }
 }
 
 .add-color-form {
