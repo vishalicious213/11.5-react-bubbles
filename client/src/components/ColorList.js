@@ -37,15 +37,15 @@ const ColorList = ({ colors, updateColors }) => {
     // console.log(colorToEdit.color);
     // console.log(colorToEdit.code.hex);
     axiosWithAuth()
-    .put(`http://localhost:5000/api/colors/${colorToEdit.id}`, colorToEdit)
-    .then(results => {
-      console.log('put: ', results);
-      console.log('put colors: ', colors);
-      refreshColors();
-    })
-    .catch(error => {
-      console.log('put Error: ', error);
-    })
+      .put(`http://localhost:5000/api/colors/${colorToEdit.id}`, colorToEdit)
+      .then(results => {
+        console.log('put: ', results);
+        console.log('put colors: ', colors);
+        refreshColors();
+      })
+      .catch(error => {
+        console.log('put Error: ', error);
+      })
   };
 
   const deleteColor = color => {
@@ -66,7 +66,7 @@ const ColorList = ({ colors, updateColors }) => {
       <p>colors</p>
       <ul>
         {colors.map(color => (
-          <li key={color.color} onClick={() => editColor(color)}>
+          <li key={color.id} onClick={() => editColor(color)}>
             <span>
               <span className="delete" onClick={e => {
                     e.stopPropagation();
