@@ -3,7 +3,7 @@ import axiosWithAuth from '../axiosWithAuth';
 
 const initialColor = {
     color: "",
-    code: { hex: "" }
+    code: { hex: "#ff8080" }
 };
 
 const AddColor = ({colors, updateColors}) => {
@@ -14,26 +14,29 @@ const AddColor = ({colors, updateColors}) => {
     }
 
     const updateHexcode = event => {
-        setColorToAdd({ ...colorToAdd, code: { hex: event.target.value }});
+        const pickedColor = document.getElementById('color-pick').value;
+        console.log(pickedColor);
+        setColorToAdd({ ...colorToAdd, code: { hex: pickedColor }});
+        // setColorToAdd({ ...colorToAdd, code: { hex: event.change.value }});
     }
 
     const refreshColors = () => {
         axiosWithAuth()
         .get('http://localhost:5000/api/colors')
         .then(newColorListResults => {
-            console.log('new colors: ', newColorListResults.data);
+            // console.log('new colors: ', newColorListResults.data);
             updateColors(newColorListResults.data);
         })
     }
 
     const submitColor = event => {
         event.preventDefault();
-        console.log('colorToAdd: ', colorToAdd);
+        // console.log('colorToAdd: ', colorToAdd);
         axiosWithAuth()
             .post(`http://localhost:5000/api/colors`, colorToAdd)
             .then(results => {
-                console.log('post: ', results);
-                console.log('post colors: ', colors);
+                // console.log('post: ', results);
+                // console.log('post colors: ', colors);
                 refreshColors();
             })
             .catch(error => {
@@ -57,10 +60,11 @@ const AddColor = ({colors, updateColors}) => {
 
                 <label>hex code:
                     <input 
-                        type='text' 
+                        id='color-pick'
+                        type='color' 
                         name='hexcode' 
                         placeholder='hexcode'
-                        value={colorToAdd.code.hexcode}
+                        value={colorToAdd.code.hex}
                         onChange={updateHexcode}
                     />
                 </label>

@@ -21,7 +21,7 @@ const ColorList = ({ colors, updateColors }) => {
     axiosWithAuth()
       .get('http://localhost:5000/api/colors')
       .then(newColorListResults => {
-        console.log('new colors: ', newColorListResults.data);
+        // console.log('new colors: ', newColorListResults.data);
         updateColors(newColorListResults.data);
         setEditing(false);
       })
@@ -32,15 +32,11 @@ const ColorList = ({ colors, updateColors }) => {
     // Make a put request to save your updated color
     // think about where will you get the id from...
     // where is is saved right now?
-    // console.log(colors);
-    // console.log(colorToEdit.id);
-    // console.log(colorToEdit.color);
-    // console.log(colorToEdit.code.hex);
     axiosWithAuth()
       .put(`http://localhost:5000/api/colors/${colorToEdit.id}`, colorToEdit)
       .then(results => {
-        console.log('put: ', results);
-        console.log('put colors: ', colors);
+        // console.log('put: ', results);
+        // console.log('put colors: ', colors);
         refreshColors();
       })
       .catch(error => {
@@ -53,7 +49,7 @@ const ColorList = ({ colors, updateColors }) => {
     axiosWithAuth()
     .delete(`http://localhost:5000/api/colors/${color.id}`)
     .then(results => {
-      console.log('delete: ', results);
+      // console.log('delete: ', results);
       refreshColors();
     })
     .catch(error => {
@@ -116,6 +112,7 @@ const ColorList = ({ colors, updateColors }) => {
       )}
       <div className="spacer" />
       {/* stretch - build another form here to add a color */}
+      {/* Made this its own component - AddColor */}
     </div>
   );
 };
